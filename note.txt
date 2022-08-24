@@ -1,0 +1,7 @@
+
+            case: v-if 
+      isShowModal === True -> render 
+      isShowModal === false -> no render 
+            case: v-show 
+      isShowModal === true -> render 
+      isShowModal === false -> render but display:none 

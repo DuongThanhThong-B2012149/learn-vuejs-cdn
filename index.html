@@ -6,21 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VueJS</title>
     <style>
+      .card-container {
+        display: flex;
+      }
       .card {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-direction: column;
         width: 250px;
-        height: 180px;
-        /* background-color: bisque; */
         border-radius: 8px;
         margin: 16px;
       }
+      .card.isActive {
+        background-color: aqua;
+      }
       img {
-        margin: 8px;
         border-radius: 8px;
-        width: 70%;
-        height: 100%;
+        width: 100%;
+        height: 80%;
+      }
+      .text-color-red {
+        color: red;
       }
     </style>
   </head>
@@ -28,7 +33,12 @@
     <h1>Hello VueJS</h1>
     <section id="contact">
       <div class="card-product card-container" :class="classTesting">
-        <div class="card" v-for="product in products">
+        <div
+          class="card"
+          v-for="product in products"
+          :class="product.isActive ? 'isActive' : ''"
+          @dblclick="onToggleCard($event,product.id)"
+        >
           <img :src="product.thumnail" alt="product" />
           <div class="">
             <p>{{product.name}}</p>

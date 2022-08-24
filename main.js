@@ -5,34 +5,35 @@ const app = Vue.createApp({
       classTesting: "testClass",
       products: [
         {
+          id: 1,
           name: "Sản phẩm A",
           price: 120.0,
           thumnail: "https://picsum.photos/seed/picsum/200/300",
+          isActive: false,
         },
         {
+          id: 2,
           name: "Sản phẩm B",
           price: 120.0,
           thumnail: "https://picsum.photos/seed/picsum/200/300",
+          isActive: false,
         },
         {
+          id: 3,
           name: "Sản phẩm C",
           price: 120.0,
           thumnail: "https://picsum.photos/seed/picsum/200/300",
+          isActive: true,
         },
       ],
     };
   },
   methods: {
-    onLogEvent(event) {
-      console.log("Running event...", event);
-    },
-    onLogEventWithParams(event, a, b) {
-      console.log(a, b);
-    },
-    onMouseMoveEvent(event) {
-      console.log("Running mouse move event...", event);
-      this.x = event.offsetX;
-      this.y = event.offsetY;
+    onToggleCard(event, id) {
+      this.products = this.products.map((product, index) => {
+        if (product.id === id) product.isActive = !product.isActive;
+        return product;
+      });
     },
   },
 });

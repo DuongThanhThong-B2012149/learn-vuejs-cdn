@@ -2,8 +2,20 @@ const app = Vue.createApp({
   template: "",
   data() {
     return {
-      x: 0,
-      y: 0,
+      products: [
+        {
+          name: "Sản phẩm A",
+          price: 120.0,
+        },
+        {
+          name: "Sản phẩm B",
+          price: 120.0,
+        },
+        {
+          name: "Sản phẩm C",
+          price: 120.0,
+        },
+      ],
     };
   },
   methods: {

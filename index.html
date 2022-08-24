@@ -21,14 +21,11 @@
   <body>
     <h1>Hello VueJS</h1>
     <section id="contact">
-      <div class="card-container">
-        <div class="card" @mouseover="onLogEvent">Mouse Over</div>
-        <div class="card" @mouseleave="onLogEvent">Mouse Leave</div>
-        <div class="card" @dblclick="onLogEventWithParams($event,50,100)">
-          Mouse Double Click
-        </div>
-        <div class="card" @mousemove="onMouseMoveEvent">
-          Mouse Move: {{`${x}-${y}`}}
+      <div class="card-product card-container">
+        <div class="card" v-for="product in products">
+          <p>{{product.name}}</p>
+          -
+          <p>{{product.price}}</p>
         </div>
       </div>
     </section>

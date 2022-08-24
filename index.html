@@ -35,7 +35,7 @@
       <div class="card-product card-container" :class="classTesting">
         <div
           class="card"
-          v-for="product in products"
+          v-for="product in productsComputed"
           :class="product.isActive ? 'isActive' : ''"
           @dblclick="onToggleCard($event,product.id)"
         >

@@ -7,21 +7,21 @@ const app = Vue.createApp({
         {
           id: 1,
           name: "Sản phẩm A",
-          price: 120.0,
+          price: 120,
           thumnail: "https://picsum.photos/seed/picsum/200/300",
           isActive: false,
         },
         {
           id: 2,
           name: "Sản phẩm B",
-          price: 120.0,
+          price: 160,
           thumnail: "https://picsum.photos/seed/picsum/200/300",
           isActive: false,
         },
         {
           id: 3,
           name: "Sản phẩm C",
-          price: 120.0,
+          price: 200,
           thumnail: "https://picsum.photos/seed/picsum/200/300",
           isActive: true,
         },
@@ -34,6 +34,11 @@ const app = Vue.createApp({
         if (product.id === id) product.isActive = !product.isActive;
         return product;
       });
+    },
+  },
+  computed: {
+    productsComputed() {
+      return this.products.filter((product, idx) => product.price < 160);
     },
   },
 });

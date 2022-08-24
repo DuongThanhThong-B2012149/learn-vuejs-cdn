@@ -12,20 +12,28 @@
         align-items: center;
         width: 250px;
         height: 180px;
-        background-color: bisque;
+        /* background-color: bisque; */
         border-radius: 8px;
+        margin: 16px;
+      }
+      img {
         margin: 8px;
+        border-radius: 8px;
+        width: 70%;
+        height: 100%;
       }
     </style>
   </head>
   <body>
     <h1>Hello VueJS</h1>
     <section id="contact">
-      <div class="card-product card-container">
+      <div class="card-product card-container" :class="classTesting">
         <div class="card" v-for="product in products">
-          <p>{{product.name}}</p>
-          -
-          <p>{{product.price}}</p>
+          <img :src="product.thumnail" alt="product" />
+          <div class="">
+            <p>{{product.name}}</p>
+            <p>{{product.price}}</p>
+          </div>
         </div>
       </div>
     </section>

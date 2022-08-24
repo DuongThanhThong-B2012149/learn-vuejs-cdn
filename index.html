@@ -5,10 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VueJS</title>
+    <style>
+      .card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 250px;
+        height: 180px;
+        background-color: bisque;
+        border-radius: 8px;
+        margin: 8px;
+      }
+    </style>
   </head>
   <body>
     <h1>Hello VueJS</h1>
-    <section id="contact"></section>
+    <section id="contact">
+      <div class="card-container">
+        <div class="card" @mouseover="onLogEvent">Mouse Over</div>
+        <div class="card" @mouseleave="onLogEvent">Mouse Leave</div>
+        <div class="card" @dblclick="onLogEventWithParams($event,50,100)">
+          Mouse Double Click
+        </div>
+        <div class="card" @mousemove="onMouseMoveEvent">
+          Mouse Move: {{`${x}-${y}`}}
+        </div>
+      </div>
+    </section>
     <script src="https://unpkg.com/vue@3"></script>
     <script src="./main.js"></script>
   </body>

@@ -1,25 +1,22 @@
 const app = Vue.createApp({
-  template:
-    "<h1>Hello from {{teamName}} and {{`${firstName} ${lastName}`}}</h1><p>{{isHello ? 'Chao ': '' }}</p><button v-on:click='isHello = true'>Hello</button><button @click='onChangeTeamName'>Change team name</button><button @click='onChangeName'>Change name but shorter</button><button @click='onToggleModal'>Toggle Modal</button><div class='modal' v-if='isShowModal'>  <h1>Modal</h1></div>",
+  template: "",
   data() {
     return {
-      teamName: "RHP team",
-      firstName: "Duong",
-      lastName: "Thong",
-      isHello: false,
-      isShowModal: true,
+      x: 0,
+      y: 0,
     };
   },
   methods: {
-    onChangeTeamName(e) {
-      this.teamName = "Herocode dev";
+    onLogEvent(event) {
+      console.log("Running event...", event);
     },
-    onChangeName(e) {
-      this.firstName = "Herocode";
-      this.lastName = "dev";
+    onLogEventWithParams(event, a, b) {
+      console.log(a, b);
     },
-    onToggleModal(e) {
-      this.isShowModal = !this.isShowModal;
+    onMouseMoveEvent(event) {
+      console.log("Running mouse move event...", event);
+      this.x = event.offsetX;
+      this.y = event.offsetY;
     },
   },
 });
